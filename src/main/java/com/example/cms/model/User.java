@@ -39,4 +39,6 @@ public class User {
 	private LocalDateTime lastModifiedAt;
 	
 	
+	private boolean deleted=false;
+	
 }

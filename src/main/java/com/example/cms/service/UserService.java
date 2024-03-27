@@ -10,5 +10,6 @@ import com.example.cms.utility.ResponeStructure;
 public interface UserService {
 
 public ResponseEntity<ResponeStructure<UserResponse>> registerUser(UserRequest userRequest);
+public ResponseEntity<ResponeStructure<UserResponse>> softDelete(String email);
 
 }
