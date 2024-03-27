@@ -82,7 +82,14 @@ public class UserServiceImpl implements UserService {
 //    	}
 //    	else {
 //    	return null;
-    
-	
     }
+	@Override
+	public ResponseEntity<ResponeStructure<UserResponse>> findByEmail(String email) {
+		return repository.findByEmail(email).map(user->{
+			UserResponse response = mapToUserResponse(user);
+			return ResponseEntity.ok(structure.setStatuscode(HttpStatus.OK.value())
+					.setMessage("user with "+email+" is found")
+					.setBody(response));
+		}).orElseThrow(()-> new UserNotFoundException("user not found"));
+	}
 }

@@ -34,6 +34,10 @@ public class userController {
 	@DeleteMapping("/users/{userId}")
 	public ResponseEntity<ResponeStructure<UserResponse>> softDeleted(@RequestParam String userId){
 		return userService.softDelete(userId);
+	}
+	@GetMapping("/users/{userId}")
+	public ResponseEntity<ResponeStructure<UserResponse>> findByEmail(@RequestParam String userId){
+		return userService.findByEmail(userId);
 		
 	}
 

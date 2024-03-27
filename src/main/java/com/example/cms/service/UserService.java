@@ -11,5 +11,6 @@ public interface UserService {
 
 public ResponseEntity<ResponeStructure<UserResponse>> registerUser(UserRequest userRequest);
 public ResponseEntity<ResponeStructure<UserResponse>> softDelete(String email);
+public ResponseEntity<ResponeStructure<UserResponse>> findByEmail(String email);
 
 }

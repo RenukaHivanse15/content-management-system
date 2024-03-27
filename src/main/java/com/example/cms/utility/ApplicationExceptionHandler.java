@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.cms.exception.UserAlreadyExistByEmailException;
+import com.example.cms.exception.UserNotFoundException;
 
 import lombok.AllArgsConstructor;
 
@@ -27,6 +28,13 @@ public class ApplicationExceptionHandler {
 		return errorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), "User Already Exists with the given email ID");
     	
     }
+    
+    @ExceptionHandler
+    public ResponseEntity<ErrorStructure<String>> userNotFoundExceptionHandle(UserNotFoundException ex ){
+    	return errorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), "user not found");
+    }
+   
+    
 
    
 }
